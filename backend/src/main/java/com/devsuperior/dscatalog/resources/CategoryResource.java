@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,7 +43,9 @@ public class CategoryResource {
 		return ResponseEntity.ok().body(dto);
 		
 	}
-	
+	/*
+	 * Acrescentar categoria
+	 */
 	@PostMapping
 	public ResponseEntity<CategoryDTO> insert(@RequestBody CategoryDTO dto){
 		dto = service.insert(dto);
@@ -51,13 +54,22 @@ public class CategoryResource {
 	}
 	
 	/*
-	 *Put -  Um método é considerado idempotente se o resultado de uma requisição realizada com sucesso é independente do 
-	 * número de vezes que é executada.
+	 *Put (alterar, atualizar categoria-  Um método é considerado idempotente se o resultado de uma requisição realizada 
+	 *com sucesso é independente do número de vezes que é executada.
 	 */
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<CategoryDTO> update(@PathVariable Long id, @RequestBody CategoryDTO dto){
 		dto = service.update(id, dto);
 		return ResponseEntity.ok().body(dto);
+	}
+	
+	/*
+	 * Deletar categoria
+	 */
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<CategoryDTO> delete(@PathVariable Long id){
+		service.delete(id);
+		return ResponseEntity.noContent().build();
 	}
 }
 
