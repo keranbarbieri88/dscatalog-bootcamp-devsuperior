@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.devsuperior.dscatalog.dto.ProductDTO;
-import com.devsuperior.dscatalog.services.ProductService;
+import com.devsuperior.dscatalog.dto.ClientDTO;
+import com.devsuperior.dscatalog.services.ClientService;
 
 
 /*
@@ -27,16 +27,16 @@ import com.devsuperior.dscatalog.services.ProductService;
  */
 
 @RestController
-@RequestMapping(value = "/products")
-public class ProductResource {
+@RequestMapping(value = "/clients")
+public class ClientResource {
 	
 	@Autowired
-	private ProductService service;
+	private ClientService service;
 		
 	@GetMapping
-	public ResponseEntity <Page<ProductDTO>> findAll(
+	public ResponseEntity <Page<ClientDTO>> findAll(
 			@RequestParam(value = "page", defaultValue = "0") Integer page,
-			@RequestParam(value = "linesPerPage", defaultValue = "12") Integer linesPerPage,
+			@RequestParam(value = "linesPerPage", defaultValue = "10") Integer linesPerPage,
 			@RequestParam(value = "orderBy", defaultValue = "name") String orderBy,
 			@RequestParam(value = "direction", defaultValue = "DESC") String direction	
 			){
@@ -44,15 +44,15 @@ public class ProductResource {
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 			
 		
-		Page<ProductDTO> list = service.findAllPaged(pageRequest);
+		Page<ClientDTO> list = service.findAllPaged(pageRequest);
 		
 		return ResponseEntity.ok().body(list);
 		
 	}
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity <ProductDTO> findById(@PathVariable Long id) {
-	ProductDTO dto = service.findById(id);
+	public ResponseEntity <ClientDTO> findById(@PathVariable Long id) {
+	ClientDTO dto = service.findById(id);
 		return ResponseEntity.ok().body(dto);
 		
 	}
@@ -60,7 +60,7 @@ public class ProductResource {
 	 * Acrescentar categoria
 	 */
 	@PostMapping
-	public ResponseEntity<ProductDTO> insert(@RequestBody ProductDTO dto){
+	public ResponseEntity<ClientDTO> insert(@RequestBody ClientDTO dto){
 		dto = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
 		return ResponseEntity.created(uri).body(dto);
@@ -71,7 +71,7 @@ public class ProductResource {
 	 *com sucesso é independente do número de vezes que é executada.
 	 */
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<ProductDTO> update(@PathVariable Long id, @RequestBody ProductDTO dto){
+	public ResponseEntity<ClientDTO> update(@PathVariable Long id, @RequestBody ClientDTO dto){
 		dto = service.update(id, dto);
 		return ResponseEntity.ok().body(dto);
 	}
@@ -80,7 +80,7 @@ public class ProductResource {
 	 * Deletar categoria
 	 */
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<ProductDTO> delete(@PathVariable Long id){
+	public ResponseEntity<ClientDTO> delete(@PathVariable Long id){
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}

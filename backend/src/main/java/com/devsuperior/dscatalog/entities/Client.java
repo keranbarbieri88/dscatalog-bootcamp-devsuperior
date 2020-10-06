@@ -1,14 +1,19 @@
-/*
- * package com.devsuperior.dscatalog.entities;
+package com.devsuperior.dscatalog.entities;
  
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,12 +24,24 @@ public class Client implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(columnDefinition = "TEXT")
 	private String name;
 	private String cpf;
 	private Double income;
+	
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant birthDate;
 	private Integer children;
-
+	
+	
+	
+	@ManyToMany
+	@JoinTable(name = "tb_client_product", 
+		joinColumns = @JoinColumn(name = "client_id"),
+		inverseJoinColumns = @JoinColumn(name = "product_id"))
+	Set<Product> products = new HashSet<>();
+	
 	public Client() {
 	}
 
@@ -85,6 +102,10 @@ public class Client implements Serializable {
 	public void setChildren(Integer children) {
 		this.children = children;
 	}
+	
+	public Set<Product> getProducts() {
+		return products;
+	}
 
 	@Override
 	public int hashCode() {
@@ -116,8 +137,7 @@ public class Client implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
+
+
 }
-*/
+

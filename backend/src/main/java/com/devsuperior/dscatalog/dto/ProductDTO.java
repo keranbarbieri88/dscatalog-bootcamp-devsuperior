@@ -45,7 +45,7 @@ public class ProductDTO implements Serializable {
 		this.date = entity.getDate();
 	}
 	/* 
-	 * Instancia o DTO colocando os elemntos na lista
+	 * Instancia o DTO colocando os elementos na lista
 	 */
 	public ProductDTO(Product entity, Set<Category> categories) {
 		this(entity);

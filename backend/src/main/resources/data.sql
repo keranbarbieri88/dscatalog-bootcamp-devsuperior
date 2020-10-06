@@ -54,3 +54,18 @@ INSERT INTO tb_product_category (product_id, category_id) VALUES (22, 3);
 INSERT INTO tb_product_category (product_id, category_id) VALUES (23, 3);
 INSERT INTO tb_product_category (product_id, category_id) VALUES (24, 3);
 INSERT INTO tb_product_category (product_id, category_id) VALUES (25, 3);
+
+INSERT INTO tb_client (name, cpf, income, birth_Date, children) VALUES ('Keran Patricia Barbieri', '13345698782', 1752.0, TIMESTAMP WITH TIME ZONE '1988-03-12T20:50:07.12345Z', 1);
+INSERT INTO tb_client (name, cpf, income, birth_Date, children) VALUES ('Jessica Renata Samh', '12345698782', 1775.0, TIMESTAMP WITH TIME ZONE '1986-06-11T20:50:07.12345Z', 1);
+INSERT INTO tb_client (name, cpf, income, birth_Date, children) VALUES ('Vanessa Souza', '18635698782', 1892.0, TIMESTAMP WITH TIME ZONE '1988-05-10T20:50:07.12345Z', 2);
+INSERT INTO tb_client (name, cpf, income, birth_Date, children) VALUES ('Jhenifer Carla Roncard', '14856998782', 1652.0, TIMESTAMP WITH TIME ZONE '1986-04-07T20:50:07.12345Z', 3);
+INSERT INTO tb_client (name, cpf, income, birth_Date, children) VALUES ('Daniele Ferrari', '13751268782', 1552.0, TIMESTAMP WITH TIME ZONE '1989-07-13T20:50:07.12345Z', 1);
+INSERT INTO tb_client (name, cpf, income, birth_Date, children) VALUES ('Ariane Rosa', '78596569872', 1852.0, TIMESTAMP WITH TIME ZONE '1986-07-20T20:50:07.12345Z', 1);
+INSERT INTO tb_client (name, cpf, income, birth_Date, children) VALUES ('Juliana Cristina Melhado', '78565698782', 1762.0, TIMESTAMP WITH TIME ZONE '1989-11-25T20:50:07.12345Z', 4);
+INSERT INTO tb_client (name, cpf, income, birth_Date, children) VALUES ('Graciele Alexandrino', '41255698782', 1952.0, TIMESTAMP WITH TIME ZONE '1987-12-13T20:50:07.12345Z', 2);
+INSERT INTO tb_client (name, cpf, income, birth_Date, children) VALUES ('Kelven Ademir Barbieri', '63545698782', 1632.0, TIMESTAMP WITH TIME ZONE '1997-08-14T20:50:07.12345Z', 1);
+INSERT INTO tb_client (name, cpf, income, birth_Date, children) VALUES ('Bruno Rodrigo Stivanatto', '15865698782', 1482.0, TIMESTAMP WITH TIME ZONE '1988-11-10T20:50:07.12345Z', 1);
+INSERT INTO tb_client (name, cpf, income, birth_Date, children) VALUES ('Amanda Tozatti', '75345698782', 1892.0, TIMESTAMP WITH TIME ZONE '1987-07-13T20:50:07.12345Z', 3);
+
+
+
